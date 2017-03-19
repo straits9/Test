@@ -1,0 +1,40 @@
+<ion-menu [content]="content">
+
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content>
+    <ion-list>
+      <ion-list-header>
+        order
+        <button ion-button small clear item-right (click)="editClick()">{{btnName}}</button>
+      </ion-list-header>
+      <ion-item-group reorder="{{flag}}" 
+                    (ionItemReorder)="reorderItems($event);">
+      <ion-item detail-push *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </ion-item>
+<!--       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button> -->
+      </ion-item-group>
+      <ion-list-header>header</ion-list-header>
+      <ion-item-group reorder="{{flag}}" 
+                    (ionItemReorder)="reorderItems($event);">
+      <ion-item detail-push *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </ion-item>
+<!--       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button> -->
+      </ion-item-group>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
